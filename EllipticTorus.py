@@ -39,14 +39,14 @@ class MESH_OT_elliptic_torus_add(Operator):
   bl_options = {"REGISTER", "UNDO", "PRESET"}
   major_major = FloatProperty(name="Ring's Major Semi-Axis", description="Half the major axis of the ring", default=2.3, min=0.0, max=100.0, step=1, precision=3)
   major_minor = FloatProperty(name="Ring's Minor Semi-Axis", description="Half the major axis of the ring", default=1.05, min=0.0, max=100.0, step=1, precision=3)
-  vstep = IntProperty(name="Ring Segments", description="Number of segments for the ellipse", default=48, min=1, max=1024)
+  vstep = IntProperty(name="Ring Segments", description="Number of segments for the ellipse", default=48, min=4, max=1024)
   ring_spacing_type = EnumProperty(items=[("spacing.area", "Equal Area", "Equally increment the parameter phi equally for each point on the ring (standard ellipse equations)"),
                                      ("spacing.normal", "Equiangular Normal", "Space between points on the ring equiangularly by the direction of the normals"),
                                      ("spacing.radius", "Equiangular Radius", "Space between points on the ring equiangularly by the direction of the radii")],
                               name="Ring Spacing", description="Define how to calculate the space between the points on the ring", default="spacing.area")
   minor_major = FloatProperty(name="Cross-Section's Major Semi-Axis", description="Half the major of the cross-section", default=0.2, min=0.0, max=100.0, step=1, precision=3)
   minor_minor = FloatProperty(name="Cross-Section's Minor Semi-Axis", description="Half the minor of the cross-section", default=0.1, min=0.0, max=100.0, step=1, precision=3)
-  ustep = IntProperty(name="Cross-Section Segments", description="Number of segments for the cross-section", default=12, min=1, max=1024)
+  ustep = IntProperty(name="Cross-Section Segments", description="Number of segments for the cross-section", default=12, min=4, max=1024)
   cross_twist = IntProperty(name="Cross-Section Twists", description="Number of twists of the cross-section; 1 twist equals 180 degrees", default=0, min=0, max=256)
   cross_rotation = FloatProperty(name="Cross-Section Initial Rotation", description="Initial rotation of the cross-section", default=0.0, min=-pi/2.0, max=pi/2.0, step=10, precision=3, subtype="ANGLE")
   cross_spacing_type = EnumProperty(items=[("spacing.area", "Equal Area", "Equally increment the parameter phi equally for each point on the cross-section (standard ellipse equations)"),
