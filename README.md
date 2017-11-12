@@ -1,10 +1,6 @@
 # Tori
 Blender add-ons for creating tori of varying configurations
 
-**N.B. Master Branch now depends on SciPy.**  
-For information on how to get SciPy to work in Blender, take a look at [Using 3rd party Python modules](https://blender.stackexchange.com/questions/5287/using-3rd-party-python-modules) at [Blender Stack Exchange](https://blender.stackexchange.com/).  
-If you're unable or unwilling to install SciPy, you need to stick with the 0.2 branch.
-
 -----
 
 ## Installation
