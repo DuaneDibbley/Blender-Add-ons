@@ -28,7 +28,7 @@ bl_info = {
 
 import bpy
 from bpy.types import Panel, Menu, Operator
-from bpy.props import IntProperty, FloatProperty, EnumProperty
+from bpy.props import IntProperty, FloatProperty, FloatVectorProperty, EnumProperty
 from math import cos, sin, pi
 from mathutils import Vector, Matrix, Euler
 from . import HelperFunctions
@@ -53,6 +53,8 @@ class MESH_OT_elliptic_torus_add(Operator):
                                      ("spacing.normal", "Equiangular Normal", "Space between points on the cross-section equiangularly by the direction of the normals"),
                                      ("spacing.radius", "Equiangular Radius", "Space between points on the cross-section equiangularly by the direction of the radii")],
                               name="Cross-Section Spacing", description="Define how to calculate the space between the points on the cross-section", default="spacing.area")
+  ring_location = FloatVectorProperty(name="Location", description="Location", default=(0.0, 0.0, 0.0), step=1, precision=3, subtype="XYZ", unit="LENGTH", size=3)
+  ring_rotation = FloatVectorProperty(name="Rotation", description="Rotation", default=(0.0, 0.0, 0.0), step=10, precision=3, subtype="XYZ", unit="ROTATION", size=3)
 
   def execute(self, context):
     #Create the base shape of the cross-section
@@ -101,6 +103,8 @@ class MESH_OT_elliptic_torus_add(Operator):
     elliptic_torus_mesh.from_pydata(vertices, [], faces)
     elliptic_torus_mesh.update()
     elliptic_torus_object = bpy.data.objects.new("Elliptic Torus", elliptic_torus_mesh)
+    elliptic_torus_object.location = self.ring_location
+    elliptic_torus_object.rotation_euler = Euler(self.ring_rotation, "XYZ")
     context.scene.objects.link(elliptic_torus_object)
     elliptic_torus_object.select = True
     bpy.context.scene.objects.active = elliptic_torus_object
