@@ -1,6 +1,10 @@
 # Tori
 Blender add-ons for creating tori of varying configurations
 
+**N.B. Master Branch now depends on SciPy.**  
+For information on how to get SciPy to work in Blender, take a look at [Using 3rd party Python modules](https://blender.stackexchange.com/questions/5287/using-3rd-party-python-modules) at [Blender Stack Exchange](https://blender.stackexchange.com/).  
+If you're unable or unwilling to install SciPy, you need to stick with the 0.2 branch.
+
 -----
 
 ## Installation
@@ -31,7 +35,8 @@ _Cross-Section's Minor Semi-Axis_ is half the length of the minor axis of the cr
 _Cross-Section Segments_ is the number of segements into which the cross-section is divided.  
 _Cross-Section Twists_ is the number of half twists to do along the ring, i.e. a setting of 1 produces a Möbius band with an interior.  
 _Cross-Section Initial Rotation_ rotates the cross-section on the Y axis **before** aligning it with the ring's normal and moving it to its position. This is the starting rotation, from which the twisting is calculated.  
-_Cross-Section Spacing_ defines how to calculate the distance between the vertices of the cross-section.
+_Cross-Section Spacing_ defines how to calculate the distance between the vertices of the cross-section.  
+_Tube Thickness Method_ defines how to calculate the tube thickness.  
 
 Setting the major and minor semi-axes to the same value, makes a circle.
 
@@ -39,8 +44,11 @@ Setting the major semi-axis to a smaller value than the minor semi-axis is perfe
 
 ##### Spacing
 Equal Area spacing just uses the standard equations for an ellipse, which cause the sectors of the ellipse to have an equal area.  
-Equiangular Normal places the circles of the cross-section such that the angle between the normals to the ellipse is constant.  
-Equirectangular Radius  places the circles of the cross-section such that the angle between the radii is constant.
+Equiangular Normal places the vertices of the ellipse such that the angle between the normals to the ellipse is constant.  
+Equirectangular Radius places vertices of the ellipse the such that the angle between the radii is constant.  
 
-#### Known issues   
-The thickness of the tube isn't exactly constant. This is especially visible if the ring has a high eccentricity and/or low segment count. I've been trying to fix this, but with the fix I had, Catmull-Clark subdivision breaks the tube thickness. I may eventually include an option to choose which is the lesser of two evils, but for now I'm not committing the fix until I've investigated options further.
+##### Tube thickness
+Equal Cross-Sections leaves the cross-sections at the size defined by the cross-section axes settings. However, if the ring is highly eccentric and/or has a very low segment count, this will cause the tube to be visibly thinner near accute angles and visibly thicker near obtuse angles.  
+Constant Tube Thickness scales the cross-sections to accommodate for the varying thickness with highly eccentric rings and rings with a low segment count. However, if you then subdivide using a smoothing algorithm like Catmull-Clark, this may backfire and actually make the tube visibly thicker at accute angles and visible thinner at obtuse angles.
+
+I've not been able to find an all purpose algorithm, and these are the best I've been able to come up with so far. You need to choose on a case by case basis.
