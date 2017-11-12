@@ -40,4 +40,7 @@ Setting the major semi-axis to a smaller value than the minor semi-axis is perfe
 ##### Spacing
 Equal Area spacing just uses the standard equations for an ellipse, which cause the sectors of the ellipse to have an equal area.  
 Equiangular Normal places the circles of the cross-section such that the angle between the normals to the ellipse is constant.  
-Equirectangular Radius  places the circles of the cross-section such that the angle between the radii is constant
+Equirectangular Radius  places the circles of the cross-section such that the angle between the radii is constant.
+
+#### Known issues   
+The thickness of the tube isn't exactly constant. This is especially visible if the ring has a high eccentricity and/or low segment count.
