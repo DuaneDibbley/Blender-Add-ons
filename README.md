@@ -43,4 +43,4 @@ Equiangular Normal places the circles of the cross-section such that the angle b
 Equirectangular Radius  places the circles of the cross-section such that the angle between the radii is constant.
 
 #### Known issues   
-The thickness of the tube isn't exactly constant. This is especially visible if the ring has a high eccentricity and/or low segment count.
+The thickness of the tube isn't exactly constant. This is especially visible if the ring has a high eccentricity and/or low segment count. I've been trying to fix this, but with the fix I had, Catmull-Clark subdivision breaks the tube thickness. I may eventually include an option to choose which is the lesser of two evils, but for now I'm not committing the fix until I've investigated options further.
