@@ -97,7 +97,7 @@ class MESH_OT_elliptic_torus_add(Operator):
     faces = []
     for v in range(self.vstep):
       for u in range(self.ustep):
-        cross_vert = (cross_trans[v]*cross[u].to_4d()).to_3d()+ring_vert[v]
+        cross_vert = cross_trans[v]*cross[u]+ring_vert[v]
 
         #Append the vertex coordinates to the list of vertices, and append a face to the list of faces.
         #The list of faces uses vertices that have not yet been created when appending intermediate faces,
