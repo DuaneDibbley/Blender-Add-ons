@@ -1,6 +1,8 @@
 # Tori
 Blender add-ons for creating tori of varying configurations
 
+**N.B. As the master branch now checks for SciPy at run-time, and gracefully disables the functionality that depends on SciPy if it is unavailable, the 0.2 branch will no longer receive any updates, since I've kept it only to have a non-SciPy version. It may be deleted without prior notice.**
+
 -----
 
 ## Installation
