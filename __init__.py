@@ -23,7 +23,7 @@ bl_info = {
   "blender" : (2, 79, 0),
   "location" : "View3D > Add > Mesh",
   "description" : "Add-on for creating tori of varying configurations",
-  "warning" : "This branch is deprecated. It was kept as a non-SciPy version, but the master branch now check for SciPy at run-time and gracefully disables any functionality depending on SciPy. Please consider upgrading, as this branch will receive no more updates and may be deleted at any time without prior notice."
+  "warning" : "This branch is deprecated. The master branch now check for SciPy at run-time and gracefully disables any functionality depending on SciPy. Please consider upgrading, as this branch will receive no more updates.",
   "category" : "Add Mesh"
 }
 
