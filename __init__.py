@@ -23,7 +23,7 @@ bl_info = {
     "blender": (2, 79, 0),
     "location": "View3D > Add > Mesh",
     "description": "Add-on for creating tori of varying configurations",
-    "warning": "Some functionality depends on SciPy, however, this functionally is gracefully disabled if SciPy is unavailable.",
+    "warning": "All development is now happening in DD Shapes instead.",
     "wiki_url": "https://github.com/DuaneDibbley/Tori/wiki/Tori",
     "category": "Add Mesh"
 }
